@@ -7,7 +7,8 @@ class Contacts extends Component {
     let contactItems;
 
     if(this.props.contacts) {
-      contactItems = this.props.contacts.map(contact => {
+      // Sorts each array by name
+      contactItems = this.props.contacts.sort((a,b) => a.name > b.name).map(contact => {
         console.log(contact);
         return (
           <ContactItem key={contact.name} contact = {contact} />

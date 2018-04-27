@@ -17,15 +17,24 @@ class App extends Component {
             email: "John@gmail.com",
             phone: "222-432-1232",
             address: "100 Main St",
-            city: "Houston",
+            city: "Dallas",
             state: "TX",
-            zipcode: "77027" 
+            zipcode: "77985" 
+          },
+          {
+            name: "Bob",
+            email: "Bob@gmail.com",
+            phone: "222-432-4230",
+            address: "102 First St",
+            city: "Austin",
+            state: "TX",
+            zipcode: "77890" 
           },
           {
             name: "Jane",
             email: "John@gmail.com",
-            phone: "222-432-1232",
-            address: "100 Main St",
+            phone: "222-432-1932",
+            address: "100 Houston St",
             city: "Houston",
             state: "TX",
             zipcode: "77027" 
