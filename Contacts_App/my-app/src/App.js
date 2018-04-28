@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Contacts from './components/Contacts.js'
-import AddContact from './components/AddContact.js'
+import Contacts from './components/Contacts.js';
+import AddContact from './components/AddContact.js';
+import uuid from 'uuid';
 
 class App extends Component {
 
@@ -13,6 +14,7 @@ class App extends Component {
       {
         contacts: [
           {
+            id: uuid.v4(),
             name: "John",
             email: "John@gmail.com",
             phone: "222-432-1232",
@@ -22,6 +24,7 @@ class App extends Component {
             zipcode: "77985" 
           },
           {
+            id: uuid.v4(),
             name: "Bob",
             email: "Bob@gmail.com",
             phone: "222-432-4230",
@@ -31,6 +34,7 @@ class App extends Component {
             zipcode: "77890" 
           },
           {
+            id: uuid.v4(),
             name: "Jane",
             email: "John@gmail.com",
             phone: "222-432-1932",
@@ -60,6 +64,16 @@ class App extends Component {
     this.setState({contact:contacts})
   }
 
+  handleDeleteContacts(id) {
+    let contacts = this.state.contacts;
+
+    let index = contacts.findIndex(x => x.id === id);
+
+    contacts.splice(index, 1);
+
+    this.setState({contacts:contacts});
+  }
+
   render() {
     console.log("Test")
     return (
@@ -67,7 +81,7 @@ class App extends Component {
         <AddContact addContact={this.handleAddContacts.bind(this)}/>
         <br /><br />
         <h2>Contact List</h2>
-        <Contacts contacts={this.state.contacts} />
+        <Contacts onDelete={this.handleDeleteContacts.bind(this)} contacts={this.state.contacts} />
       </div>
       
     );

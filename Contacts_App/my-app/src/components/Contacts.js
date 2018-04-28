@@ -3,15 +3,19 @@ import ContactItem from './ContactItem.js';
 
 class Contacts extends Component {
 
+  deleteContact(id) {
+    this.props.onDelete(id);
+  }
+
   render() {
     let contactItems;
 
     if(this.props.contacts) {
-      // Sorts each array by name
+      // Sorts each contact by name
       contactItems = this.props.contacts.sort((a,b) => a.name > b.name).map(contact => {
         console.log(contact);
         return (
-          <ContactItem key={contact.name} contact = {contact} />
+          <ContactItem onDelete={this.deleteContact.bind(this)} key={contact.id} contact = {contact} />
         )
       })
     }

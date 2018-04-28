@@ -59,7 +59,7 @@ class AddContact extends Component {
             <label>Zip Code</label>
             <input type="text" ref="zipcode" />
           </div>
-          <input type="submit" value="submit" />
+          <input type="submit" value="Add Contact" />
         </form>
       </div>
       
