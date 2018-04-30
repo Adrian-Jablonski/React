@@ -7,6 +7,10 @@ class Contacts extends Component {
     this.props.onDelete(id);
   }
 
+  showMore(id) {
+    console.log(id);
+  }
+
   render() {
     let contactItems;
 

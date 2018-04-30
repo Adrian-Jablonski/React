@@ -7,6 +7,7 @@ class App extends Component {
 
   constructor() {
     super()
+    // this.setState({showResults: true})
   }
 
   getContacts() {
@@ -72,6 +73,13 @@ class App extends Component {
     contacts.splice(index, 1);
 
     this.setState({contacts:contacts});
+  }
+
+  handleShowMore(id) {
+    let contacts = this.state.contacts;
+
+    let index = contacts.findIndex(x => x.id === id);
+    
   }
 
   render() {
