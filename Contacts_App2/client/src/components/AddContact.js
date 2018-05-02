@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
+import uuid from 'uuid';
+import axios from 'axios';
 
 class AddContact extends Component {
+  state = {newContact:[]};
 
   handleSubmit(e) {
     e.preventDefault();
     if (this.refs.name.value === '') {
       alert('Name is required');
     } else {
+
       this.setState(
         {newContact:{
+          // id: uuid.v4(),
           name: this.refs.name.value,
           email: this.refs.email.value,
           phone: this.refs.phone.value,
@@ -18,10 +23,25 @@ class AddContact extends Component {
           zipcode: this.refs.zipcode.value
           // Retrieves user input from form
         } 
-      }, function() {
+      }, 
+      function() {
         this.props.addContact(this.state.newContact);
         // Adds contact to list
+        axios.post("/contacts", {
+          name: this.refs.name.value,
+          email: this.refs.email.value,
+          phone: this.refs.phone.value,
+          address: this.refs.address.value,
+          city: this.refs.city.value,
+          state: this.refs.state.value,
+          zipcode: this.refs.zipcode.value
+        })
+        .then(function(response) {
+          console.log(response)
+        })
       })
+
+      
     }
   }
   
@@ -33,31 +53,31 @@ class AddContact extends Component {
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div>
             <label>Name: </label>
-            <input type="text" ref="name" />
+            <input type="text" ref="name" name="name" /> 
           </div>
           <div>
             <label>E-mail: </label>
-            <input type="text" ref="email" />
+            <input type="text" ref="email" name="email" />
           </div>
           <div>
             <label>Phone Number: </label>
-            <input type="text" ref="phone" />
+            <input type="text" ref="phone" name="phone" />
           </div>
           <div>
             <label>Address: </label>
-            <input type="text" ref="address" />
+            <input type="text" ref="address" name="address" />
           </div>
           <div>
             <label>City: </label>
-            <input type="text" ref="city" />
+            <input type="text" ref="city" name="city" />
           </div>
           <div>
             <label>State: </label>
-            <input type="text" ref="state" />
+            <input type="text" ref="state" name="state" />
           </div>
           <div>
             <label>Zip Code</label>
-            <input type="text" ref="zipcode" />
+            <input type="text" ref="zipcode" name="zipcode" />
           </div>
           <input type="submit" value="Add Contact" />
         </form>

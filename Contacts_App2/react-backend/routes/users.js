@@ -14,9 +14,11 @@ var options = {
 router.get('/', function(req, res, next) {
   db.any(`SELECT * FROM contacts`).then(function (userData) {
         res.json(userData);
-        console.log(userData);
+        console.log("userData ");
     })
     
 });
+
+
 
 module.exports = router;
