@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class ContactItem extends Component {
 
@@ -10,6 +11,12 @@ class ContactItem extends Component {
     console.log(id);
 
     this.props.onDelete(id);
+    axios.post("/deleteContact", {
+      id: this.props.contact.id
+    })
+    .then(function(response) {
+      console.log(response)
+    })
   }
 
   showMore(id) {

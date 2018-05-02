@@ -24,9 +24,6 @@ router.post('/', function(req,res) {
     var city = req.body.city;
     var state = req.body.state;
     var zipcode = req.body.zipcode;
-    // (function() {
-    //     console.log("Submitted");
-    // })
 
     db.none(`INSERT INTO contacts(name, email, phone, address, city, state, zipcode) VALUES ($1, $2, $3, $4, $5, $6, $7)`,[name, email, phone, address, city, state, zipcode]);
 })

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Contacts from './components/Contacts.js';
-import AddContact from './components/AddContact.js';
+import EditContact from './components/EditContact.js';
 // import uuid from 'uuid';
 
 class App extends Component {
@@ -42,7 +42,7 @@ class App extends Component {
     console.log("Test")
     return (
       <div>
-        <AddContact addContact={this.handleAddContacts.bind(this)}/>
+        <EditContact addContact={this.handleAddContacts.bind(this)}/>
         <br /><br />
         <h2>Contact List</h2>
         <Contacts onDelete={this.handleDeleteContacts.bind(this)} contacts={this.state.contacts} />

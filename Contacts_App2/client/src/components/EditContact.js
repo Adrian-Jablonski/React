@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import uuid from 'uuid';
 import axios from 'axios';
 
-class AddContact extends Component {
+class EditContact extends Component {
   state = {newContact:[]};
 
   handleSubmit(e) {
@@ -27,7 +26,7 @@ class AddContact extends Component {
       function() {
         this.props.addContact(this.state.newContact);
         // Adds contact to list
-        axios.post("/contacts", {
+        axios.post("/addContact", {
           name: this.refs.name.value,
           email: this.refs.email.value,
           phone: this.refs.phone.value,
@@ -40,9 +39,16 @@ class AddContact extends Component {
           console.log(response)
         })
       })
-
       
     }
+    // // Clears input fields after submission
+    //   this.refs.name.value = ""
+    //   this.refs.email.value = ""
+    //   this.refs.phone.value = ""
+    //   this.refs.address.value = ""
+    //   this.refs.city.value = ""
+    //   this.refs.state.value = ""
+    //   this.refs.zipcode.value = ""
   }
   
 
@@ -87,4 +93,4 @@ class AddContact extends Component {
   }
 }
 
-export default AddContact;
+export default EditContact;
