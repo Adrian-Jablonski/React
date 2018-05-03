@@ -12,7 +12,6 @@ class EditContact extends Component {
 
       this.setState(
         {newContact:{
-          // id: uuid.v4(),
           name: this.refs.name.value,
           email: this.refs.email.value,
           phone: this.refs.phone.value,
@@ -41,6 +40,7 @@ class EditContact extends Component {
       })
       
     }
+    // e.target.reset();
     // // Clears input fields after submission
     //   this.refs.name.value = ""
     //   this.refs.email.value = ""
