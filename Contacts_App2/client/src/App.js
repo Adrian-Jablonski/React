@@ -20,6 +20,10 @@ class App extends Component {
     this.getContacts();
   }
 
+  componentWillUpdate() {
+    this.getContacts(); // allows for deleting items that were created in the same session
+  }
+
   handleAddContacts(contact) {
     console.log(contact);
 
